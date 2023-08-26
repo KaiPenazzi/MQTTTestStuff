@@ -1,15 +1,14 @@
 import { PrismaClient } from '@prisma/client'
 
-export default defineEventHandler(async (event) => {
-    const prisma = new PrismaClient()
+// Erstelle eine PrismaClient-Instanz außerhalb des Event Handlers
+const prisma = new PrismaClient()
 
+export default defineEventHandler(async (event) => {
     try {
         const res = await prisma.data.findMany()
         return res
     } catch (error) {
         console.error('Error retrieving data:', error)
         throw error
-    } finally {
-        await prisma.$disconnect()
     }
 })
