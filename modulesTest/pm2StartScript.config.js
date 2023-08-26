@@ -1,7 +1,7 @@
 module.exports = {
   apps: [
     {
-      name: 'nuxt-app',
+      name: 'isBad',
       script: 'npx',
       args: 'nuxi dev',
       interpreter: 'none',
