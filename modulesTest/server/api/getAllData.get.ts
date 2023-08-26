@@ -3,9 +3,13 @@ import { PrismaClient } from '@prisma/client'
 export default defineEventHandler(async (event) => {
     const prisma = new PrismaClient()
 
-    const res = await prisma.data.findMany()
-
-    await prisma.$disconnect()
-
-    return res
+    try {
+        const res = await prisma.data.findMany()
+        return res
+    } catch (error) {
+        console.error('Error retrieving data:', error)
+        throw error
+    } finally {
+        await prisma.$disconnect()
+    }
 })

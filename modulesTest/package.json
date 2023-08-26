@@ -6,11 +6,13 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "dev-debug": "ndb .output/server/index.mjs"
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
     "@types/node": "^20.5.3",
+    "ndb": "^1.1.5",
     "nuxt": "^3.6.5"
   },
   "dependencies": {
