@@ -1,4 +1,5 @@
-import {MqttClient, connect} from 'mqtt';
+import {MqttClient, connect} from 'mqtt'
+import { PrismaClient } from '@prisma/client'
 
 interface Device {
     id: Number;
@@ -37,7 +38,15 @@ class MqttBroker {
 
         client.subscribe(topic);
 
-        client.on("message", (topic, msg) => {
+        client.on("message", async (topic, msg) => {
+            const prisma = new PrismaClient()
+            await prisma.data.create({
+                data: {
+                    input: msg + ""
+                },
+            })
+            await prisma.$disconnect()
+
             client.latestMSG = msg + "";
         });
 

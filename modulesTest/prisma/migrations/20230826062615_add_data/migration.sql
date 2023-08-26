@@ -1,0 +1,5 @@
+-- CreateTable
+CREATE TABLE "Data" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "input" TEXT NOT NULL
+);
