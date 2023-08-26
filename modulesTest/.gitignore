@@ -26,3 +26,4 @@ logs
 
 #db
 dev.db
+dev.db-journal
