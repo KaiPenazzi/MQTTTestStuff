@@ -5,5 +5,7 @@ export default defineEventHandler(async (event) => {
 
     const res = await prisma.data.findMany()
 
+    await prisma.$disconnect()
+
     return res
 })
